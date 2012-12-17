@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>通讯录地图</title>
+    <link rel="stylesheet" href="css/themes/default/jquery.mobile-1.1.0.css" />
+
+</head>
+<body>
+    <!-- Start of map page: #mappage -->
+    <div data-role="page" data-dom-cache="true" id="mappage" class="type-home" data-theme="b">
+        <div data-role="header" data-theme="b">
+
+            <h1>通讯录地图</h1>
+
+            <a href="#" id="btnLoad" class="ui-btn-right" data-icon="check">加载</a>
+        </div>
+        <div data-role="content" style="margin: 0; padding: 0;">
+            <div id="map_canvas" style="width: 100%; min-height: 400px; height: 100%;"></div>
+        </div>
+
+        <div data-role="footer" data-id="foo1">
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#" class="ui-btn-active ui-state-persist" data-icon="gear">地图</a></li>
+                    <li><a href="#listpage" data-icon="grid">列表</a></li>
+                    <li><a href="#morepage" data-icon="info">更多</a></li>
+                </ul>
+            </div>
+            <!-- /navbar -->
+        </div>
+        <!-- /footer -->
+    </div>
+
+
+
+    <!-- Start of second page: #listpage -->
+    <div data-role="page" data-dom-cache="true" id="listpage" data-theme="c">
+
+        <div data-role="header" data-theme="b">
+            <h1>列表</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+            <div class="content-primary">
+
+                <ul id="listview" data-role="listview" data-filter="true" data-inset="true">
+                </ul>
+            </div>
+        </div>
+        <!-- /content -->
+
+        <div data-role="footer" data-id="foo1" data-position="fixed">
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#mappage" data-icon="gear">地图</a></li>
+                    <li><a href="#" class="ui-btn-active ui-state-persist" data-icon="grid">列表</a></li>
+                    <li><a href="#morepage" data-icon="info">更多</a></li>
+                </ul>
+            </div>
+            <!-- /navbar -->
+        </div>
+        <!-- /footer -->
+    </div>
+    <!-- /page two -->
+
+
+    <!-- Start of third page: #morepage -->
+    <div data-role="page" data-dom-cache="true" id="morepage">
+
+        <div data-role="header" data-theme="b">
+            <h1>关于</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content" data-theme="d">
+            <p>通讯录地图是一款将通讯录的信息显示在地图上的应用，通过该应用可以一目了然的看出每个区域的联系人数量。</p>
+            <p><a href="mailto:lexinquan@gmail.com" data-role="button" data-inline="true" data-icon="forward">lexinquan@gmail.com</a></p>
+        </div>
+        <!-- /content -->
+
+        <div data-role="footer" data-id="foo1" data-position="fixed">
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#mappage" data-icon="gear">地图</a></li>
+                    <li><a href="#listpage" data-icon="grid">列表</a></li>
+                    <li><a href="#" class="ui-btn-active ui-state-persist" data-icon="info">更多</a></li>
+                </ul>
+            </div>
+            <!-- /navbar -->
+        </div>
+        <!-- /footer -->
+    </div>
+    <!-- /page popup -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.2.0.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" charset="utf-8" src="js/markercluster.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/cordova-1.9.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/page.js"></script>
+
+</body>
+</html>
