@@ -36,40 +36,39 @@ function onDeviceReady() {
             return false;
         }
     }, false);
-
-    $(document).bind("mobileinit", function () {
-        // Make your jQuery Mobile framework configuration changes here!
-
-        $.mobile.pushStateEnabled = false;
-    });
-
-    $('#mappage').live('pageshow', function () {
-        var the_height = ($(window).height() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height());
-        $(this).height($(window).height()).find('[data-role="content"]').height(the_height);
-        if (map) {
-            google.maps.event.trigger(map, 'resize');
-        }
-        console.log("mappage pageshow");
-    });
-
-    $(document).bind("pageinit", function () {
-        // Make your jQuery Mobile framework configuration changes here!
-
-        $.mobile.allowCrossDomainPages = true;
-
-        initialize();
-
-        $("#btnLoad").bind("click", function () {
-            $.mobile.loading('show', {
-                text: '正在加载通讯录...',
-                textVisible: true,
-                theme: 'b',
-                html: ""
-            });
-            getContacts();
-        });
-    });
 }
+$(document).bind("mobileinit", function () {
+    // Make your jQuery Mobile framework configuration changes here!
+
+    $.mobile.pushStateEnabled = false;
+});
+
+$('#mappage').live('pageshow', function () {
+    var the_height = ($(window).height() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height());
+    $(this).height($(window).height()).find('[data-role="content"]').height(the_height);
+    if (map) {
+        google.maps.event.trigger(map, 'resize');
+    }
+    console.log("mappage pageshow");
+});
+
+$(document).bind("pageinit", function () {
+    // Make your jQuery Mobile framework configuration changes here!
+
+    $.mobile.allowCrossDomainPages = true;
+
+    initialize();
+
+    $("#btnLoad").bind("click", function () {
+        $.mobile.loading('show', {
+            text: '正在加载通讯录...',
+            textVisible: true,
+            theme: 'b',
+            html: ""
+        });
+        getContacts();
+    });
+});
 function getContacts() {
     // find all contacts with 'Bob' in any name field
     var options = new ContactFindOptions();
