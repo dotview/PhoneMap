@@ -31,6 +31,7 @@ function onDeviceReady() {
             });
             setTimeout(function () {
                 $.mobile.loading('hide');
+                exitCode--;
             }, 5000);
             e.preventDefault();
             return false;
@@ -41,6 +42,10 @@ $(document).bind("mobileinit", function () {
     // Make your jQuery Mobile framework configuration changes here!
 
     $.mobile.pushStateEnabled = false;
+    $.mobile.zoom.enabled = false;
+    $.mobile.buttonMarkup.hoverDelay = 0; //defaults 200
+    $.mobile.defaultDialogTransition = 'slide';
+    $.mobile.defaultPageTransition = 'slide';
 });
 
 $('#mappage').live('pageshow', function () {
@@ -137,7 +142,17 @@ function initialize() {
     oCluster = new MarkerClusterer(
             map, [], {
                 gridSize: 70,
-                maxZoom: 15
+                maxZoom: 15,
+                styles: [{
+                    'url': "images/balloon_s_n.png",
+                    'height': 32,
+                    'width': 32
+                },
+                {
+                    'url': "images/balloon_l_n.png",
+                    'height': 48,
+                    'width': 48
+                }]
             });
 }
 
@@ -146,7 +161,8 @@ function createMarker(point, title, html, id) {
     var marker = new google.maps.Marker({
         position: point,
         title: title,
-        map: map
+        map: map,
+        icon: new google.maps.MarkerImage("images/marker2.png", new google.maps.Size(21, 21)) 
         //animation: google.maps.Animation.DROP
     });
 
